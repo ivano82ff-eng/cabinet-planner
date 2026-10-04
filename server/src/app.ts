@@ -1,5 +1,6 @@
 import { existsSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import path from 'node:path';
+import { projectRoot } from './paths';
 import {
   buildCabinet,
   buildDrawing,
@@ -164,7 +165,7 @@ export async function buildApp(db: Database, mode: 'postgres' | 'embedded'): Pro
     });
   });
 
-  const clientDist = fileURLToPath(new URL('../../client/dist', import.meta.url));
+  const clientDist = path.join(projectRoot(), 'client', 'dist');
   if (existsSync(clientDist)) {
     await app.register(fastifyStatic, { root: clientDist });
     app.setNotFoundHandler((request, reply) => {

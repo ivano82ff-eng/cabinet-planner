@@ -1,6 +1,7 @@
 import { mkdirSync, readFileSync } from 'node:fs';
+import path from 'node:path';
 import { randomUUID } from 'node:crypto';
-import { fileURLToPath } from 'node:url';
+import { projectRoot } from './paths';
 import { CATALOG, parseConfig, type CabinetConfig } from '@planner/shared';
 import { PGlite } from '@electric-sql/pglite';
 import { Pool } from 'pg';
@@ -41,7 +42,7 @@ interface ProjectRow {
   updated_at: Date | string;
 }
 
-const SCHEMA = readFileSync(new URL('../sql/001_init.sql', import.meta.url), 'utf8');
+const SCHEMA = readFileSync(path.join(projectRoot(), 'server', 'sql', '001_init.sql'), 'utf8');
 
 export async function openDatabase(): Promise<{ db: Database; mode: 'postgres' | 'embedded' }> {
   const url = process.env.DATABASE_URL;
@@ -50,7 +51,7 @@ export async function openDatabase(): Promise<{ db: Database; mode: 'postgres' |
     await migrate(db);
     return { db, mode: 'postgres' };
   }
-  const dataDir = fileURLToPath(new URL('../../data/pglite', import.meta.url));
+  const dataDir = path.join(projectRoot(), 'data', 'pglite');
   return { db: await openEmbedded(dataDir), mode: 'embedded' };
 }
 

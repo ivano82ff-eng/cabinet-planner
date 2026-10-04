@@ -1,5 +1,6 @@
 import { existsSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import path from 'node:path';
+import { projectRoot } from './paths';
 import {
   buildDrawing,
   describeSize,
@@ -26,7 +27,7 @@ export interface SpecDocument {
 }
 
 export function resolveFontPath(): string | null {
-  const bundled = fileURLToPath(new URL('../assets/Roboto-Regular.ttf', import.meta.url));
+  const bundled = path.join(projectRoot(), 'server', 'assets', 'Roboto-Regular.ttf');
   if (existsSync(bundled)) return bundled;
   const arial = 'C:/Windows/Fonts/arial.ttf';
   if (existsSync(arial)) return arial;
