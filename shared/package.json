@@ -1,0 +1,11 @@
+{
+  "name": "@planner/shared",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^24.6.0"
+  }
+}

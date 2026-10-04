@@ -1,0 +1,29 @@
+{
+  "id": 1042,
+  "billing": {
+    "first_name": "Иван",
+    "last_name": "Петров",
+    "email": "ivan@example.com"
+  },
+  "line_items": [
+    {
+      "name": "Тумба на заказ",
+      "sku": "BASE-CUSTOM",
+      "meta_data": [
+        { "key": "type", "value": "base" },
+        { "key": "width", "value": "800" },
+        { "key": "height", "value": "720" },
+        { "key": "depth", "value": "560" },
+        { "key": "material", "value": "oak" },
+        { "key": "shelves", "value": "1" },
+        { "key": "doors", "value": "2" },
+        { "key": "drawers", "value": "0" },
+        { "key": "plinth", "value": "100" }
+      ]
+    },
+    {
+      "name": "Доставка",
+      "meta_data": [{ "key": "note", "value": "подъём на этаж" }]
+    }
+  ]
+}
