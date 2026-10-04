@@ -6,6 +6,7 @@ import { defineConfig } from 'vite';
 const root = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
+  base: process.env.PAGES === '1' ? '/cabinet-planner/' : '/',
   plugins: [react()],
   resolve: {
     alias: {

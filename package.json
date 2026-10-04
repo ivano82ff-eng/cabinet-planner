@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "dev": "concurrently -n server,client -c cyan,yellow \"npm run dev -w server\" \"npm run dev -w client\"",
-    "test": "node --import tsx --test shared/src/cabinet.test.ts shared/src/export.test.ts shared/src/woo.test.ts server/src/sign.test.ts server/src/pdf.test.ts server/src/db.test.ts",
+    "test": "node --import tsx --test shared/src/cabinet.test.ts shared/src/export.test.ts shared/src/woo.test.ts server/src/sign.test.ts server/src/pdf.test.ts server/src/db.test.ts client/src/printSpec.test.ts",
     "typecheck": "tsc -p shared --noEmit && tsc -p server --noEmit && tsc -p client --noEmit",
     "build": "npm run build -w client",
     "start": "npm run start -w server"

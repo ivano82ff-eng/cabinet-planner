@@ -332,8 +332,13 @@ button.on {
 }
 
 @media (max-width: 1180px) {
-  .app { height: auto; }
-  .workspace { grid-template-columns: 1fr; }
+  html, body, #root { height: auto; }
+  .app { height: auto; min-height: 100%; }
+  .workspace { display: block; }
   .viewport { height: 68vh; }
-  .panel, .dossier { border: 0; }
+  .panel, .dossier {
+    border: 0;
+    overflow: visible;
+    min-height: auto;
+  }
 }
